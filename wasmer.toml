@@ -1,0 +1,14 @@
+[package]
+name = "fortune/youtube-live-title"
+version = "1.0.0"
+description = "YouTube video title auto-updater with live view count"
+license = "MIT"
+
+[dependencies]
+"nickvdyck/python-hello-world" = "*"
+
+[fs]
+
+[bin]
+name = "app"
+module = "python:python"

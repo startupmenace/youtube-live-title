@@ -1,0 +1,20 @@
+kind: wasmer.io/App.v0
+name: youtube-live-title
+owner: fortune
+package: ""
+
+capabilities:
+  memory:
+    limit: 512Mb
+
+env:
+  VIDEO_ID: gffTQyF-cQQ
+  REFRESH_TOKEN: "1//03tmy3G6mTfPYCgYIARAAGAMSNwF-L9Ir5Cfsm40pUSE7v1CQ9la8peJIODrgdY5jODVvgy53RtS1RWZnHnhMo5LHfFsC8L_S4kg"
+  CLIENT_SECRET_JSON: '{"installed":{"client_id":"771255614605-ka6252m6h1kbv1h7otjjdfdles9fot0p.apps.googleusercontent.com","client_secret":"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","auth_uri":"https://accounts.google.com/o/oauth2/auth","token_uri":"https://oauth2.googleapis.com/token","auth_provider_x509_cert_url":"https://www.googleapis.com/oauth2/v1/certs","redirect_uris":["http://localhost"]}}'
+
+jobs:
+  - name: update-title
+    trigger: "*/10 * * * *"
+    action:
+      execute:
+        command: python youtube_live_title_updater.py
