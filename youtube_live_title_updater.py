@@ -27,7 +27,7 @@ import logging
 import os
 import sys
 import time
-from datetime import datetime
+from datetime import datetime, timezone
 
 from google.auth.transport.requests import Request
 from google.oauth2.credentials import Credentials
@@ -155,7 +155,7 @@ def main():
             view_count = get_view_count(youtube, video_id)
             title = template.format(count=f"{view_count:,}")
             changed = update_title(youtube, video_id, title)
-            timestamp = datetime.utcnow().isoformat()
+            timestamp = datetime.now(timezone.utc).isoformat()
 
             if changed:
                 log.info(f"[{timestamp}] Updated title -> \"{title}\"")
